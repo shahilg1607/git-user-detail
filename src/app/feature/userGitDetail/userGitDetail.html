@@ -1,0 +1,18 @@
+<header page-title="Git User Detail"></header>
+<div class="container-fluid">
+    <div class="row m-3">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <search-text-field fetch-user-detail="$ctrl.fetchUserDetail(searchedText)"></search-text-field>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row m-1" ng-if="$ctrl.errorMessage">
+        <div class="col-4"></div>
+        <div class="col-4 text-danger">
+            {{$ctrl.errorMessage}}
+        </div>
+        <div class="col-4"></div>    
+    </div>
+    <user-detail-display user-detail="$ctrl.userDetail" ng-if="$ctrl.isUserDetailAvailable"></user-detail-display>
+</div>

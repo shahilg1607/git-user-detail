@@ -1,0 +1,44 @@
+<div class="bg-light text-dark" >
+    <table class="table table-bordered">
+        <tbody>
+            <tr class="d-flex">
+                <td class="col-4"> 
+                    Username
+                </td>
+                <td class="col-8">
+                    {{$ctrl.userDetail.login}}
+                </td>
+            </tr>
+            <tr class="d-flex">
+                <td class="col-4">
+                    Profile picture
+                </td>
+                <td class="col-8">
+                    <img src="{{$ctrl.userDetail.avatar_url}}" height="100" width="100" alt="">
+                </td>
+            </tr>
+            <tr class="d-flex">
+                <td class="col-4">
+                    Location
+                </td>
+                <td class="col-8">
+                    {{$ctrl.userDetail.location || 'N/A'}}
+                </td>
+            </tr>
+            <tr class="d-flex">
+                <td class="col-4">
+                    Top repositories
+                </td>
+                <td class="col-8">
+                    <ul>
+                        <li
+                            ng-repeat="repoDetail in $ctrl.userDetail.repos | orderBy: '-stargazers_count' | limitTo: 5">
+                            <a href="{{repoDetail.html_url}}" target="_blank">{{repoDetail.name}}</a>
+                            ({{repoDetail.stargazers_count}} stargazers)
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
